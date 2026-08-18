@@ -2,11 +2,15 @@
   "extends": [
     "stylelint-config-standard",
   ],
-  "syntax": "css",
   "rules": {
-    "number-leading-zero": "never",
+    "alpha-value-notation": null,
+    "color-function-alias-notation": null,
+    "color-function-notation": null,
     "comment-empty-line-before": "never",
+    "declaration-block-no-redundant-longhand-properties": null,
+    "function-url-quotes": null,
+    "media-feature-range-notation": null,
     "no-descending-specificity": null,
-    "declaration-block-trailing-semicolon": null
+    "selector-attribute-quotes": null
   },
 }

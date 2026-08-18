@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react"
 import PropTypes from "prop-types"
 
 import { map } from "leaflet/src/map"
-import { icon } from "leaflet/src/layer/marker/Icon"
 import { divIcon } from "leaflet/src/layer/marker/DivIcon"
 import { Marker } from "leaflet/src/layer/marker/Marker"
 import { tileLayer } from "leaflet/src/layer/tile/TileLayer"
@@ -26,13 +25,6 @@ import "leaflet/dist/leaflet.css"
   layerUrl: require("leaflet/dist/images/layers.png"),
   layerRetinaUrl: require("leaflet/dist/images/layers-2x.png"),
 })*/
-
-const finishIcon = icon({
-  iconUrl: require("../../../images/destination-flag.svg"),
-
-  iconSize:     [64, 64], // size of the icon
-  iconAnchor:   [30, 50], // point of the icon which will correspond to marker's location
-})
 
 export default function Map({ coords, onAddMarker, onUpdateMarker, ...props }) {
   const mapRef = useRef()
@@ -115,4 +107,3 @@ Map.propTypes = {
   onAddMarker: PropTypes.func,
   onUpdateMarker: PropTypes.func,
 }
-

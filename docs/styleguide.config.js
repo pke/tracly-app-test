@@ -1,3 +1,5 @@
+const path = require("node:path")
+
 module.exports = {
   title: "tracly App Test Docs",
   skipComponentsWithoutExample: true,
@@ -42,18 +44,32 @@ module.exports = {
     },
   },
   webpackConfig: {
+    resolve: {
+      modules: [path.resolve(__dirname, "node_modules"), "node_modules"],
+      alias: {
+        react: path.resolve(__dirname, "node_modules/react"),
+        "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
+      },
+    },
+    resolveLoader: {
+      modules: [path.resolve(__dirname, "node_modules"), "node_modules"],
+    },
     module: {
       rules: [
         {
           test: /\.js?$/,
           exclude: /node_modules/,
           loader: "babel-loader",
+          options: {
+            configFile: path.resolve(__dirname, "babel.config.js"),
+          },
+          resolve: {
+            fullySpecified: false,
+          },
         },
         {
           test: /\.(jpg|png|svg)$/,
-          use: {
-            loader: "url-loader",
-          },
+          type: "asset",
         },
         {
           test: /\.css$/,

@@ -1,9 +1,11 @@
-const assert = require("chai").assert
+const assert = require("node:assert").strict
 
-const exportGPX = require("../src/components/Export/exportGPX")
+const exportGPXPromise = import("../src/components/Export/exportGPX.js")
+  .then(({ default: exportGPX }) => exportGPX)
 
 describe("GPX export", function() {
-  it("should export 2 entries", function() {
+  it("should export 2 entries", async function() {
+    const exportGPX = await exportGPXPromise
     const coords = [
       [ 1, 2 ],
     ]
