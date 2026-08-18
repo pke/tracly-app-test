@@ -1,20 +1,31 @@
 {
   "name": "docs",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "overrides": {
+    "markdown-to-jsx": "7.7.17",
+    "serialize-javascript": "7.1.0",
+    "uuid": "11.1.1",
+    "webpack-dev-server": "5.2.6"
+  },
   "devDependencies": {
-    "@babel/core": "7.7.7",
-    "@babel/preset-env": "7.7.7",
-    "@babel/preset-react": "7.7.4",
-    "babel-loader": "8.0.6",
-    "css-loader": "3.4.1",
-    "documentation": "12.1.4",
-    "react-styleguidist": "10.4.0",
-    "url-loader": "3.0.0",
-    "webpack": "4.41.5"
+    "@babel/core": "7.29.6",
+    "@babel/preset-env": "7.29.7",
+    "@babel/preset-react": "7.29.7",
+    "babel-loader": "9.2.1",
+    "core-js": "3.50.0",
+    "css-loader": "7.1.4",
+    "documentation": "14.0.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-styleguidist": "13.1.4",
+    "webpack": "5.109.2"
   },
   "scripts": {
     "build:hooks": "documentation build --document-exported ../src/hooks/*.js -f md -o ./hooks.md",
-    "build": "npm run build:hooks && styleguidist build",
+    "build": "npm run build:hooks && cd .. && styleguidist build --config docs/styleguide.config.js",
     "dev": "npm run build:hooks -- --watch & styleguidist server"
   }
 }
